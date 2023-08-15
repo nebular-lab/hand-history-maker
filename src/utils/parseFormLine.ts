@@ -47,7 +47,7 @@ function parseFirstLine(line: string): Player[] {
 }
 
 function parseSecondLine(line: string): string {
-  if (!['2', '3', '4'].includes(line)) {
+  if (!['1','2', '3', '4'].includes(line)) {
     return '';
   }
 
