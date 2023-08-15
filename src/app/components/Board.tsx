@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Card, CardType } from './Card';
+import { Card } from './Card';
 
 type Props = {
   cards: string[];

@@ -1,5 +1,5 @@
 'use client';
-import { FormLineType, Position, PreflopAction } from '@/types';
+import { FormLineType } from '@/types';
 import { useRef, useState } from 'react';
 import { Form } from './components/Form';
 import { Hand } from './components/Hand';

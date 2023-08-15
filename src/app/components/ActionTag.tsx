@@ -1,4 +1,4 @@
-import { Action, Move, Position } from '@/types';
+import { Action, Position } from '@/types';
 import { FC } from 'react';
 
 type Props = Action & {
