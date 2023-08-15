@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Providers } from './providers';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'History Image Generator',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className="flex justify-center">
         <Providers>{children}</Providers>
+        <Analytics/>
       </body>
     </html>
   );
