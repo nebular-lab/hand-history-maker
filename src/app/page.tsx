@@ -42,7 +42,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center m-5 gap-5">
+    <div className="flex items-center m-5 gap-5  w-fit">
       <Form formLine={formLine} setFormLine={setFormLine} />
       <div className="flex flex-col items-start gap-3">
         <div ref={captureRef}>
