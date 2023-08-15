@@ -25,7 +25,7 @@ export const Card: FC<Props> = (props) => {
   } else if (mark == 's') {
     markColor = 'bg-spade';
   } else {
-    markColor = 'bg-spade';
+    markColor = 'bg-unselect';
   }
 
   return (

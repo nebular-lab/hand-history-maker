@@ -8,6 +8,7 @@ import { useToast } from '@chakra-ui/react';
 
 export default function Home() {
   const [formLine, setFormLine] = useState<FormLineType>({
+    ES: '',
     players: '',
     XBP: '',
     board: '',

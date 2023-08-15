@@ -10,10 +10,11 @@ type Props = {
 
 export const Hand = (props: Props) => {
   const { formLine } = props;
-  const { players, XBP, board, flop, turn, river } = parseFormLine(formLine);
+  const { ES, players, XBP, board, flop, turn, river } =
+    parseFormLine(formLine);
   return (
     <div className="flex flex-col bg-bg rounded-md gap-2 p-4 min-w-[754px]">
-      <Players players={players} XBP={XBP} />
+      <Players players={players} XBP={XBP} ES={ES}/>
       <Board cards={board} />
       <Street street="flop" actions={flop} players={players} />
       <Street street="turn" actions={turn} players={players} />

@@ -9,6 +9,7 @@ type Props = {
 export const Form: FC<Props> = (props) => {
   const { formLine, setFormLine } = props;
   const inputDatas: { label: keyof FormLineType; example: string }[] = [
+    { label: 'ES', example: '100' },
     { label: 'XBP', example: '3' },
     { label: 'players', example: 'BB/4s3c vs HJ/AcTd' },
     { label: 'board', example: 'AsQd5s4c または As Qd 5s 4c' },

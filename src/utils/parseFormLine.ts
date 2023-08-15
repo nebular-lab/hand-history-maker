@@ -3,6 +3,7 @@ import { Action, FormLineType, Move, Player, Position } from '@/types';
 export const parseFormLine = (formLine: FormLineType) => {
   return {
     players: parseFirstLine(formLine.players),
+    ES: parseESLine(formLine.ES),
     XBP: parseSecondLine(formLine.XBP),
     board: parseThirdLine(formLine.board),
     flop: parseActionLine(formLine.flop),
@@ -10,6 +11,14 @@ export const parseFormLine = (formLine: FormLineType) => {
     river: parseActionLine(formLine.river),
   };
 };
+
+function parseESLine(line: string): string {
+  const match = line.match(/^\d+(\.\d+)?$/);
+  if (!match) {
+    return '';
+  }
+  return match[0];
+}
 
 function parseFirstLine(line: string): Player[] {
   const positionsOrder = ['SB', 'BB', 'UTG', 'HJ', 'CO', 'BTN'];
@@ -47,7 +56,7 @@ function parseFirstLine(line: string): Player[] {
 }
 
 function parseSecondLine(line: string): string {
-  if (!['1','2', '3', '4'].includes(line)) {
+  if (!['1', '2', '3', '4'].includes(line)) {
     return '';
   }
 

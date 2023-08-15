@@ -32,6 +32,7 @@ const config: Config = {
       'allin':'#290550',
       'bg': '#252525',
       'white': '#FFFFFF',
+      'unselect':'#484645'
     },
   },
   plugins: [],

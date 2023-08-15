@@ -7,6 +7,7 @@ export type Action = {
 export type PreflopAction = '2BP' | '3BP' | '4BP';
 export type FormLineType = {
   players: string;
+  ES: string;
   XBP: string;
   board: string;
   flop: string;
