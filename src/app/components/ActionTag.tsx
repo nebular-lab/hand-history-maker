@@ -19,7 +19,7 @@ export const ActionTag: FC<Props> = (props) => {
   } else if (move == 'r') {
     bgColor = 'bg-raise';
   } else if (move == 'a') {
-    bgColor = 'bg-allin';
+    bgColor = 'bg-large';
   }
   return (
     <div

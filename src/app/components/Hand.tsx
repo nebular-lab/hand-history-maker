@@ -13,7 +13,7 @@ export const Hand = (props: Props) => {
   const { ES, players, XBP, board, flop, turn, river } =
     parseFormLine(formLine);
   return (
-    <div className="flex flex-col bg-bg rounded-md gap-2 p-4 min-w-[754px]">
+    <div className="flex flex-col bg-bg rounded-md gap-3 p-4 min-w-[754px]">
       <Players players={players} XBP={XBP} ES={ES}/>
       <Board cards={board} />
       <Street street="flop" actions={flop} players={players} />
