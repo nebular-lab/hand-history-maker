@@ -24,7 +24,7 @@ const config: Config = {
       'diamond': '#2839C4',
       'heart': '#AD0F05',
       'fold': '#0A92CF',
-      'callCheck': '#71CC6C',
+      'callCheck': '#5BAC56',
       'small': '#F06200',
       'medium': '#ED2543',
       'large': '#72008D',

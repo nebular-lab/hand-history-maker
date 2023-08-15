@@ -67,7 +67,8 @@ function parseActionLine(line: string): Action[] {
   const actions: Action[] = [];
   const moves = line.split('/');
   for (const move of moves) {
-    const match = move.match(/(x|b|c|r|f|a)(\d*(?:%|BB)?)/);
+    const match = move.match(/(x|b|c|r|f|a)(\d+(\.\d+)?(?:%|BB)?)?/);
+
     if (!match) {
       break;
     }

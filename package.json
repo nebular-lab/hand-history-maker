@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.1.5",
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -16,6 +20,7 @@
     "dom-to-image": "^2.6.0",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.13",
+    "framer-motion": "^10.15.2",
     "html2canvas": "^1.4.1",
     "next": "13.4.13",
     "postcss": "8.4.27",

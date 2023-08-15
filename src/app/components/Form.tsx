@@ -8,23 +8,24 @@ type Props = {
 
 export const Form: FC<Props> = (props) => {
   const { formLine, setFormLine } = props;
-  const labels: (keyof FormLineType)[] = [
-    'XBP',
-    'players',
-    'board',
-    'flop',
-    'turn',
-    'river',
+  const inputDatas: { label: keyof FormLineType; example: string }[] = [
+    { label: 'XBP', example: '3' },
+    { label: 'players', example: 'BB/4s3c vs CO/AcTd' },
+    { label: 'board', example: 'AsQd5s4c または As Qd 5s 4c' },
+    { label: 'flop', example: 'x/b30%/c または x/b2.2BB/c' },
+    { label: 'turn', example: 'x/b50%/r50%/c' },
+    { label: 'river', example: 'a40%/f' },
   ];
+
   return (
     <div className="w-[300px]  flex flex-col gap-1">
-      {labels.map((label, index) => (
+      {inputDatas.map((inputData, index) => (
         <div key={index}>
           <label
             className="block  text-sm font-medium text-gray-900 dark:text-white"
-            htmlFor={label}
+            htmlFor={inputData.label}
           >
-            {label}
+            {inputData.label}
           </label>
           <input
             className={
@@ -32,11 +33,15 @@ export const Form: FC<Props> = (props) => {
             }
             autoComplete="off"
             type="text"
-            name={label}
-            id={label}
-            value={formLine[label]}
+            name={inputData.label}
+            id={inputData.label}
+            value={formLine[inputData.label]}
+            placeholder={inputData.example}
             onChange={(e) =>
-              setFormLine((prev) => ({ ...prev, [label]: e.target.value }))
+              setFormLine((prev) => ({
+                ...prev,
+                [inputData.label]: e.target.value,
+              }))
             }
           />
         </div>

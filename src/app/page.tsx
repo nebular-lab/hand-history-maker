@@ -4,6 +4,8 @@ import { useRef, useState } from 'react';
 import { Form } from './components/Form';
 import { Hand } from './components/Hand';
 import domtoimage from 'dom-to-image';
+import { useToast } from '@chakra-ui/react';
+
 export default function Home() {
   const [formLine, setFormLine] = useState<FormLineType>({
     players: '',
@@ -14,6 +16,8 @@ export default function Home() {
     river: '',
   });
   const captureRef = useRef(null);
+  const toast = useToast();
+
   const captureAndCopy = async () => {
     const node = captureRef.current;
     if (!node) return;
@@ -25,7 +29,12 @@ export default function Home() {
         return navigator.clipboard.write(items);
       })
       .then(() => {
-        console.log('Image copied to clipboard!');
+        toast({
+          title: 'コピーしました',
+          status: 'success',
+          duration: 1000,
+          isClosable: true,
+        });
       })
       .catch((error) => {
         alert(`Error:${error}`);
