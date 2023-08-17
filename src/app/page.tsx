@@ -1,24 +1,28 @@
-'use client';
-import { FormLineType } from '@/types';
-import { useRef, useState } from 'react';
-import { Form } from './components/Form';
-import { Hand } from './components/Hand';
-import domtoimage from 'dom-to-image';
-import { useToast } from '@chakra-ui/react';
+"use client";
+import { FormLineType } from "@/types";
+import { useRef, useState } from "react";
+import { Form } from "./components/Form";
+import { Hand } from "./components/Hand";
+import domtoimage from "dom-to-image";
+import { useToast } from "@chakra-ui/react";
 
 export default function Home() {
-  const [formLine, setFormLine] = useState<FormLineType>({
-    ES: '',
-    players: '',
-    XBP: '',
-    board: '',
-    flop: '',
-    turn: '',
-    river: '',
-  });
+  const defaultFormLine: FormLineType = {
+    ES: "",
+    players: "",
+    XBP: "",
+    board: "",
+    flop: "",
+    turn: "",
+    river: "",
+  };
+  const [formLine, setFormLine] = useState<FormLineType>(defaultFormLine);
   const captureRef = useRef(null);
   const toast = useToast();
 
+  const resetFormLine = () => {
+    setFormLine(defaultFormLine);
+  };
   const captureAndCopy = async () => {
     const node = captureRef.current;
     if (!node) return;
@@ -26,13 +30,13 @@ export default function Home() {
     domtoimage
       .toBlob(node)
       .then((blob) => {
-        const items = [new ClipboardItem({ 'image/png': blob })];
+        const items = [new ClipboardItem({ "image/png": blob })];
         return navigator.clipboard.write(items);
       })
       .then(() => {
         toast({
-          title: 'コピーしました',
-          status: 'success',
+          title: "コピーしました",
+          status: "success",
           duration: 1000,
           isClosable: true,
         });
@@ -49,14 +53,24 @@ export default function Home() {
         <div ref={captureRef}>
           <Hand formLine={formLine} />
         </div>
-        <button
-          onClick={captureAndCopy}
-          className={
-            'bg-accent-green hover:bg-dark-accent-green text-white font-bold py-2 px-4 rounded'
-          }
-        >
-          クリップボードに保存
-        </button>
+        <div className="flex gap-2">
+          <button
+            className={
+              "bg-accent-green hover:bg-dark-accent-green text-white font-bold py-2 px-4 rounded"
+            }
+            onClick={resetFormLine}
+          >
+            リセット
+          </button>
+          <button
+            onClick={captureAndCopy}
+            className={
+              "bg-accent-green hover:bg-dark-accent-green text-white font-bold py-2 px-4 rounded"
+            }
+          >
+            クリップボードに保存
+          </button>
+        </div>
         <div id="img"></div>
       </div>
     </div>
