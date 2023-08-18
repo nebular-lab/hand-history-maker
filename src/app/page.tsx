@@ -56,7 +56,7 @@ export default function Home() {
         <div className="flex gap-2">
           <button
             className={
-              "bg-accent-green hover:bg-dark-accent-green text-white font-bold py-2 px-4 rounded"
+              "bg-danger hover:bg-dangerHover text-white font-bold py-2 px-4 rounded"
             }
             onClick={resetFormLine}
           >
