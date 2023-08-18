@@ -16,6 +16,7 @@ export const Card: FC<Props> = (props) => {
   }
 
   let markColor = '';
+  let borderColor = '';
   if (mark == 'c') {
     markColor = 'bg-club';
   } else if (mark == 'd') {
@@ -26,11 +27,12 @@ export const Card: FC<Props> = (props) => {
     markColor = 'bg-spade';
   } else {
     markColor = 'bg-unselect';
+    borderColor='border border-action-border'
   }
 
   return (
     <div
-      className={`${markColor} rounded-md flex font-sans h-[55px] w-[40px]  text-white text-3xl  items-center justify-center`}
+      className={`${markColor} ${borderColor} rounded-md flex font-sans h-[55px] w-[40px]  text-white text-3xl  items-center justify-center`}
     >
       {num}
     </div>
